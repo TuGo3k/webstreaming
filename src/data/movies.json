@@ -1,0 +1,85 @@
+{
+    "movies": [
+      {
+        "title": "Message in a Bottle",
+        "genre": "Adventure",
+        "image": "/poster1.jpg",
+        "rating": 3.5,
+        "hd": true,
+        "language": "English"
+      },
+      {
+        "title": "The Parkar Legend",
+        "genre": "Adventure",
+        "image": "/poster2.jpg",
+        "rating": 3.5,
+        "hd": true,
+        "language": "English"
+      },
+      {
+        "title": "The Tonoy 88 Bottle",
+        "genre": "Adventure",
+        "image": "/poster3.jpg",
+        "rating": 3.5,
+        "hd": true,
+        "language": "English"
+      },
+      {
+        "title": "The Ackle Bottle",
+        "genre": "Adventure",
+        "image": "/poster4.jpg",
+        "rating": 3.5,
+        "hd": true,
+        "language": "English"
+      },
+      {
+        "title": "The Legend of Emo",
+        "genre": "Adventure",
+        "image": "/poster5.jpg",
+        "rating": 3.5,
+        "hd": true,
+        "language": "English"
+      },
+      {
+        "title": "Message in a Bottle",
+        "genre": "Adventure",
+        "image": "/poster6.jpg",
+        "rating": 3.5,
+        "hd": true,
+        "language": "English"
+      },
+      {
+        "title": "The Parkar Legend",
+        "genre": "Adventure",
+        "image": "/poster7.jpg",
+        "rating": 3.5,
+        "hd": true,
+        "language": "English"
+      },
+      {
+        "title": "The Tonoy 88 Bottle",
+        "genre": "Adventure",
+        "image": "/poster8.jpg",
+        "rating": 3.5,
+        "hd": true,
+        "language": "English"
+      },
+      {
+        "title": "The Ackle Bottle",
+        "genre": "Adventure",
+        "image": "/poster9.jpg",
+        "rating": 3.5,
+        "hd": true,
+        "language": "English"
+      },
+      {
+        "title": "The Legend of Emo",
+        "genre": "Adventure",
+        "image": "/poster10.jpg",
+        "rating": 3.5,
+        "hd": true,
+        "language": "English"
+      }
+    ]
+  }
+  

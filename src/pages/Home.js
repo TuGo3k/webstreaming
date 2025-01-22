@@ -10,8 +10,10 @@ import "swiper/css"; // Import Swiper styles
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
-import NewRelease from './NewRelease' // Import EffectFade styles
-
+import NewRelease from './NewReleaseMovies' // Import EffectFade styles
+import TopShowWatch from './TopShowWatch'
+import PricingStrategy from "./PricingStrategy";
+import Footer from "../components/Footer";
 const Home = () => {
   const [active, setActive] = useState("НҮҮР");
   const [search, setSearch] = useState("");
@@ -81,7 +83,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className="Category bg-[#252631] w-full h-[106px] flex justify-evenly px-[9%] items-center">
+      <div className="fixed top-0 left-0 Category bg-[#252631] w-full h-[106px] flex justify-evenly px-[9%] items-center z-20">
         <div className="logo h-full flex items-center">
           <img
             src={Logo}
@@ -118,7 +120,7 @@ const Home = () => {
         </button>
       </div>
       <div
-        className="relative bg-cover bg-center bg-no-repeat h-[650px] flex items-center justify-center "
+        className="relative mt-[100px] bg-cover bg-center bg-no-repeat h-[650px] flex items-center justify-center "
         style={{ backgroundImage: `url(${moviebg})` }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -196,6 +198,9 @@ const Home = () => {
         </AnimatePresence>
       </div>
       <NewRelease/>
+      <TopShowWatch />
+      <PricingStrategy />
+      <Footer />
     </div>
   );
 };

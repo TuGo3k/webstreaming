@@ -1,0 +1,27 @@
+{
+    "prices": [
+      {
+        "title": "Premium",
+        "price": "7.99",
+        "quality": "Good",
+        "resolution": "480p",
+        "screens": "1"
+      },
+      {
+        "title": "Standard",
+        "price": "9.99",
+        "quality": "Better",
+        "resolution": "1080p",
+        "screens": "2",
+        "highlight": true
+      },
+      {
+        "title": "Premium",
+        "price": "11.99",
+        "quality": "Best",
+        "resolution": "4K+HDR",
+        "screens": "4"
+      }
+    ]
+  }
+  

@@ -1,0 +1,31 @@
+/* Pagination bullets */
+.custom-swiper .swiper-pagination-bullet {
+    font-size: 6px; /* Set your desired font size */
+    width: 6px; /* Adjust width for larger/smaller dots */
+    height: 6px; /* Adjust height for larger/smaller dots */
+    background-color: red; /* Change the color of the dots */
+  }
+  
+  /* Pagination active bullet */
+  .custom-swiper .swiper-pagination-bullet-active {
+    background-color: yellow; /* Change the color of the active dot */
+  }
+  
+  /* Navigation arrows */
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 6px; /* Set your desired font size for the arrow icons */
+    color: #fff; /* White color for the arrow icons */
+  }
+  
+  /* Ensure the navigation arrows are visible and properly styled */
+  .swiper-button-prev,
+  .swiper-button-next {
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional background */
+    display: flex;
+   
+    align-items: center;
+    justify-content: center;
+  }
+  
