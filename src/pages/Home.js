@@ -10,10 +10,11 @@ import "swiper/css"; // Import Swiper styles
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
-import NewRelease from './NewReleaseMovies' // Import EffectFade styles
-import TopShowWatch from './TopShowWatch'
-import PricingStrategy from "./PricingStrategy";
+import NewRelease from "../components/NewReleaseMovies"; // Import EffectFade styles
+import TopShowWatch from "../components/TopShowWatch";
+import PricingStrategy from "../components/PricingStrategy";
 import Footer from "../components/Footer";
+import DownloadSection from "../components/DownloadSection";
 const Home = () => {
   const [active, setActive] = useState("НҮҮР");
   const [search, setSearch] = useState("");
@@ -81,9 +82,28 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const handleScroll = () => {
+    if (window.scrollY > lastScrollY) {
+      // Scrolling down
+      setShowNavbar(false);
+      setShowNavbar(false);
+    } else {
+      // Scrolling up
+      setShowNavbar(true);
+    }
+    setLastScrollY(window.scrollY);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   return (
     <div>
-      <div className="fixed top-0 left-0 Category bg-[#252631] w-full h-[106px] flex justify-evenly px-[9%] items-center z-20">
+      <div className={`fixed top-0 left-0 Category bg-[#252631] w-full h-[106px] flex justify-evenly px-[9%] items-center z-20 transition-transform duration-300 ${showNavbar ? "translate-y-0" : "-translate-y-full"}`}>
         <div className="logo h-full flex items-center">
           <img
             src={Logo}
@@ -143,17 +163,18 @@ const Home = () => {
                       variants={fadeIn("up", 0.5)}
                       initial="hidden"
                       animate="show"
-                        exit="exit"
+                      exit="exit"
                       className="text-4xl md:text-6xl font-bold"
                     >
                       {el.title}
-                      <span className="text-yellow-300"> Movie</span>, TV Shows, & More.
+                      <span className="text-yellow-300"> Movie</span>, TV Shows,
+                      & More.
                     </motion.h1>
                     <motion.div
                       variants={fadeIn("up", 0.8)}
                       initial="hidden"
                       animate="show"
-                        exit="exit"
+                      exit="exit"
                       className="flex items-center gap-4 mt-4"
                     >
                       <span className="bg-white text-black px-3 py-1 rounded-lg text-sm font-bold">
@@ -172,7 +193,7 @@ const Home = () => {
                       variants={fadeIn("up", 1.1)}
                       initial="hidden"
                       animate="show"
-                        exit="exit"
+                      exit="exit"
                       className="mt-8 px-6 py-3 border-yellow-300 border-2 rounded-full flex items-center gap-2 font-bold text-white hover:bg-yellow-300 hover:text-black"
                     >
                       <FiPlay className="text-lg" />
@@ -197,7 +218,8 @@ const Home = () => {
           )}
         </AnimatePresence>
       </div>
-      <NewRelease/>
+      <NewRelease />
+      <DownloadSection />
       <TopShowWatch />
       <PricingStrategy />
       <Footer />

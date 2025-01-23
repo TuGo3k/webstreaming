@@ -5,18 +5,15 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import  { MovieCard }  from '../components/MovieCard';
+import { MovieCard } from "./MovieCard";
 import data from "../data/movies.json";
 
-
 const cateNames = [
-  { title: 'Categories' },
-  { title: 'Categories2' },
-  { title: 'Categories3' },
-  { title: 'Categories4' },
+  { title: "Categories" },
+  { title: "Categories2" },
+  { title: "Categories3" },
+  { title: "Categories4" },
 ];
-
-
 
 const NewReleaseMovies = () => {
   const [active, setActive] = useState([0]);
@@ -35,18 +32,19 @@ const NewReleaseMovies = () => {
             className="custom-swiper"
           >
             {cateNames.map((el, index) => (
-           <SwiperSlide key={index}>
-           <button
-              onClick={() => {
-                setChosen(index);
-                setBg(0)}}
-             className={`rounded-full border-2 px-5 py-3 text-[12px] font-bold ${
-              chosen === index ? "border-yellow-300" : "border-white "
-             }`}
-           >
-             {el.title}
-           </button>
-         </SwiperSlide>
+              <SwiperSlide key={index}>
+                <button
+                  onClick={() => {
+                    setChosen(index);
+                    setBg(0);
+                  }}
+                  className={`rounded-full border-2 px-5 py-3 text-[12px] font-bold ${
+                    chosen === index ? "border-yellow-300" : "border-white "
+                  }`}
+                >
+                  {el.title}
+                </button>
+              </SwiperSlide>
             ))}
           </Swiper>
         </div>
@@ -71,4 +69,3 @@ const NewReleaseMovies = () => {
 };
 
 export default NewReleaseMovies;
-
