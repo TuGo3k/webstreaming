@@ -1,9 +1,11 @@
 import { IoIosStar } from "react-icons/io";
 import { BiSolidLike } from "react-icons/bi";
+import { Link } from "react-router-dom";
+import DATA from "../data/movies.json";
+export const MovieCard = ({ movie, id }) => {
 
-export const MovieCard = ({ movie }) => {
   return (
-    <div className="bg-gray-800 flex flex-col  justify-between text-white p-4 rounded-lg shadow-md h-[486px]">
+    <Link to={`/movie/${id}`} className="bg-gray-800 flex flex-col  justify-between text-white p-4 rounded-lg shadow-md h-[486px]">
       <div className="fuck w-full h-full flex flex-col items-center justify-between mb-7">
       <img
         src={movie.image}
@@ -35,6 +37,6 @@ export const MovieCard = ({ movie }) => {
           {movie.rating}
         </span>
       </div>
-    </div>
+    </Link>
   );
 };

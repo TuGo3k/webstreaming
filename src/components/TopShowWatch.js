@@ -11,7 +11,7 @@ const TopShowWatch = () => {
       </div>
       <div className="px-[16%] grid grid-cols-5 gap-5 ">
         {movies.map((movie, index) => (
-          <MovieCard key={index} movie={movie} />
+          <MovieCard key={index} movie={movie} id={movie.id} />
         ))}
       </div>
     </div>

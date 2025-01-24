@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { MovieCard } from "./MovieCard";
-import data from "../data/movies.json";
+import DATA from "../data/movies.json";
 
 const cateNames = [
   { title: "Categories" },
@@ -19,7 +19,7 @@ const NewReleaseMovies = () => {
   const [active, setActive] = useState([0]);
   const [chosen, setChosen] = useState(0);
   const [bg, setBg] = useState(0);
-  const movies = data.movies;
+  const movies = DATA.movies;
   return (
     <div className="bg-black text-white py-10 px-[16%]">
       <div className="flex w-full justify-between items-center text-center mb-8">
@@ -58,9 +58,9 @@ const NewReleaseMovies = () => {
         autoplay={{ delay: 3000 }}
         pagination={{ clickable: true }}
       >
-        {movies.map((movie, index) => (
+        {movies.map((movie, index, ) => (
           <SwiperSlide key={index}>
-            <MovieCard movie={movie} />
+            <MovieCard  movie={movie} id={movie.id} />
           </SwiperSlide>
         ))}
       </Swiper>
