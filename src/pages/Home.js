@@ -97,84 +97,88 @@ const Home = () => {
   return (
     <div>
       <div
-        className="relative mt-[100px] bg-cover bg-center bg-no-repeat h-[650px] flex items-center justify-center "
-        style={{ backgroundImage: `url(${moviebg})` }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <AnimatePresence>
-          {slidemovies.map(
-            (el, index) =>
-              index === activeIndex && (
-                <div
-                  key={el.title}
-                  className="relative z-10 flex w-full h-full items-center gap-8 mx-[13%]  text-white p-8"
-                >
-                  <motion.div
-                    className="flex-1"
-                    variants={fadeInOut}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                  >
-                    <motion.h1
-                      variants={fadeIn("up", 0.5)}
-                      initial="hidden"
-                      animate="show"
-                      exit="exit"
-                      className="text-4xl md:text-6xl font-bold"
-                    >
-                      {el.title}
-                      <span className="text-yellow-300"> Movie</span>, TV Shows,
-                      & More.
-                    </motion.h1>
-                    <motion.div
-                      variants={fadeIn("up", 0.8)}
-                      initial="hidden"
-                      animate="show"
-                      exit="exit"
-                      className="flex items-center gap-4 mt-4"
-                    >
-                      <span className="bg-white text-black px-3 py-1 rounded-lg text-sm font-bold">
-                        PG 18
-                      </span>
-                      <span className="bg-white text-black px-3 py-1 rounded-lg text-sm font-bold">
-                        HD
-                      </span>
-                      <span className="text-sm">{el.genre}</span>
-                      <FaRegCalendarAlt className="text-yellow-300" />
-                      <span className="text-sm">{el.releaseDate}</span>
-                      <FaRegClock className="text-yellow-300" />
-                      <span className="text-sm">{el.length} min</span>
-                    </motion.div>
-                    <motion.button
-                      variants={fadeIn("up", 1.1)}
-                      initial="hidden"
-                      animate="show"
-                      exit="exit"
-                      className="mt-8 px-6 py-3 border-yellow-300 border-2 rounded-full flex items-center gap-2 font-bold text-white hover:bg-yellow-300 hover:text-black"
-                    >
-                      <FiPlay className="text-lg" />
-                      Watch Now
-                    </motion.button>
-                  </motion.div>
-                  <motion.div
-                    variants={fadeIn("left", 0.5)}
-                    initial="hidden"
-                    animate="show"
-                    exit="exit"
-                    className="flex-shrink-0 w-[610px] h-[470px] border-4 border-yellow-300 rounded-lg overflow-hidden relative"
-                  >
-                    <img
-                      src={el.pic}
-                      alt="Movie Thumbnail"
-                      className="w-full h-full object-cover transition-transform duration-500 ease-in-out transform hover:scale-105"
-                    />
-                  </motion.div>
-                </div>
-              )
-          )}
-        </AnimatePresence>
-      </div>
+  className="relative mt-[100px] bg-cover bg-center bg-no-repeat h-[650px] flex items-center justify-center"
+  style={{ backgroundImage: `url(${moviebg})` }}
+>
+  <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+  <AnimatePresence>
+    {slidemovies.map(
+      (el, index) =>
+        index === activeIndex && (
+          <div
+            key={el.title}
+            className="relative z-10 flex flex-col md:flex-row w-full h-full items-center gap-8 mx-[5%] md:mx-[13%] text-white p-8"
+          >
+            {/* Left Side: Text Content */}
+            <motion.div
+              className="flex-1"
+              variants={fadeInOut}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
+              <motion.h1
+                variants={fadeIn("up", 0.5)}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-center md:text-left"
+              >
+                {el.title}
+                <span className="text-yellow-300"> Movie</span>, TV Shows, &
+                More.
+              </motion.h1>
+              <motion.div
+                variants={fadeIn("up", 0.8)}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+                className="flex flex-wrap items-center gap-2 sm:gap-4 mt-4 justify-center md:justify-start"
+              >
+                <span className="bg-white text-black px-3 py-1 rounded-lg text-xs sm:text-sm font-bold">
+                  PG 18
+                </span>
+                <span className="bg-white text-black px-3 py-1 rounded-lg text-xs sm:text-sm font-bold">
+                  HD
+                </span>
+                <span className="text-xs sm:text-sm">{el.genre}</span>
+                <FaRegCalendarAlt className="text-yellow-300" />
+                <span className="text-xs sm:text-sm">{el.releaseDate}</span>
+                <FaRegClock className="text-yellow-300" />
+                <span className="text-xs sm:text-sm">{el.length} min</span>
+              </motion.div>
+              <motion.button
+                variants={fadeIn("up", 1.1)}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+                className="mt-8 px-6 py-3 border-yellow-300 border-2 rounded-full flex items-center gap-2 font-bold text-white hover:bg-yellow-300 hover:text-black mx-auto md:mx-0"
+              >
+                <FiPlay className="text-lg" />
+                Watch Now
+              </motion.button>
+            </motion.div>
+
+            {/* Right Side: Image */}
+            <motion.div
+              variants={fadeIn("left", 0.5)}
+              initial="hidden"
+              animate="show"
+              exit="exit"
+              className="flex-shrink-0 w-full md:w-[610px] h-[300px] md:h-[470px] border-4 border-yellow-300 rounded-lg overflow-hidden relative"
+            >
+              <img
+                src={el.pic}
+                alt="Movie Thumbnail"
+                className="w-full h-full object-cover transition-transform duration-500 ease-in-out transform hover:scale-105"
+              />
+            </motion.div>
+          </div>
+        )
+    )}
+  </AnimatePresence>
+</div>
+
       <NewRelease />
       <DownloadSection />
       <TopShowWatch />
