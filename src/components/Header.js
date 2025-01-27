@@ -11,45 +11,30 @@ const Header = () => {
 
   const categories = [
     { title: "НҮҮР", route: "/" },
-    { title: "БҮГД", route: "/asd" },
-    { title: "ҮНЭ", route: "" },
-    { title: "ВЛОГ", route: "" },
-    { title: "ХОЛБОО БАРИХ", route: "" },
+    { title: "КИНО", route: "/category" },
+    { title: "БҮГД", route: "/all" },
+    { title: "ҮНЭ", route: "/pricing" },
+    { title: "ВЛОГ", route: "/vlog" },
+    { title: "ХОЛБОО БАРИХ", route: "/contact" },
   ];
 
   return (
     <div
-      className={`fixed top-0 left-0 bg-[#252631] w-full h-[106px] flex justify-between items-center px-[5%] md:px-[9%] z-20 transition-transform duration-300 ${
+      className={`fuck2 w-full lg:fixed top-0 left-0 bg-[#252631] lg:h-[106px] lg:flex justify-evenly items-center py-5 px-[5%] md:px-[9%] z-20  ${
         showNavbar ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      {/* Logo */}
-      <div className="logo flex items-center">
+     <div className="flex items-center justify-between">
+       {/* Logo */}
+       <div className="logo flex items-center">
         <img
           src={Logo}
-          className="w-[120px] sm:w-[151px] h-[44px] hover:cursor-pointer"
+          className="w-[120px] lg:w-[151px] lg:h-[44px] hover:cursor-pointer"
           alt="logo"
         />
       </div>
-
-      {/* Desktop Navbar */}
-      <div className="hidden md:flex gap-6">
-        {categories.map((category, index) => (
-          <Link
-            key={index}
-            to={category.route}
-            className={`text-white font-semibold p-2 ${
-              active === category.title ? "text-yellow-300" : "text-white"
-            }`}
-            onClick={() => setActive(category.title)}
-          >
-            {category.title}
-          </Link>
-        ))}
-      </div>
-
-      {/* Mobile Menu Toggle */}
-      <div className="md:hidden">
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden">
         {isMobileMenuOpen ? (
           <FiX
             className="text-white text-3xl hover:cursor-pointer"
@@ -62,6 +47,25 @@ const Header = () => {
           />
         )}
       </div>
+     </div>
+
+      {/* Desktop Navbar */}
+      <div className="hidden md:flex gap-6">
+        {categories.map((category, index) => (
+          <Link
+            key={index}
+            to={category.route}
+            className={`text-white font-semibold p-2 hover:text-yellow-300 ${
+              active === category.title ? "text-yellow-300" : "text-white"
+            }`}
+            onClick={() => setActive(category.title)}
+          >
+            {category.title}
+          </Link>
+        ))}
+      </div>
+
+    
 
       {/* Search Bar */}
       <div className="hidden md:flex items-center bg-[#12151e] h-[46px] p-3 rounded-full">
@@ -83,7 +87,7 @@ const Header = () => {
 
       {/* Mobile Dropdown Menu */}
       {isMobileMenuOpen && (
-        <div className="absolute top-[106px] left-0 w-full bg-[#252631] text-white flex flex-col gap-4 p-4 z-30 md:hidden">
+        <div className="transition-all duration-1000 ease-in-out left-0 w-full bg-[#252631] text-white flex flex-col gap-4 p-4 z-30 md:hidden">
           {categories.map((category, index) => (
             <Link
               key={index}

@@ -97,7 +97,7 @@ const Home = () => {
   return (
     <div>
       <div
-  className="relative mt-[100px] bg-cover bg-center bg-no-repeat h-[650px] flex items-center justify-center"
+  className="relative lg:mt-[100px] bg-cover bg-center bg-no-repeat h-[650px] flex items-center justify-center"
   style={{ backgroundImage: `url(${moviebg})` }}
 >
   <div className="absolute inset-0 bg-black bg-opacity-50"></div>

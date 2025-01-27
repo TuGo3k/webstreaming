@@ -26,12 +26,12 @@ const DownloadSection = () => {
   };
   return (
     <section
-      className="bg-black text-white py-[130px] px-6 lg:px-16 relative bg-cover bg-center"
+      className="bg-black text-white py-[15%] lg:py-[5%] px-6 lg:px-16 relative bg-cover bg-center"
       style={{ backgroundImage: `url(${services_bg02})` }}
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center">
         {/* Left Content */}
-        <div className="space-y-6 w-3/4">
+        <div className="space-y-6 lg:w-3/4">
           <motion.h4
             variants={fadeIn("up", 0.5)}
             initial="hidden"
@@ -106,15 +106,15 @@ const DownloadSection = () => {
           initial="hidden"
           animate="show"
           exit="exit"
-          className="relative mt-8 lg:mt-0 flex justify-center"
+       className=" relative mt-8 lg:mt-0 flex flex-col-reverse lg:justify-center items-center gap-5"
         >
-          <div className="bg-yellow-400 rounded-lg h-20 w-[200px] absolute -left-[86px] top-48 flex items-center justify-center transform rotate-90 gap-3 cursor-pointer">
+          <div className="bg-yellow-400 rounded-lg h-20 w-[200px] lg:absolute lg:-left-[86px] lg:top-48 flex items-center justify-center transform lg:rotate-90 gap-3 cursor-pointer z-10">
             <p className="text-black text-sm font-semibold tracking-widest ">
               DOWNLOAD
             </p>
-            <GoDownload className="size-[24px] text-black -rotate-90" />
+            <GoDownload className="size-[24px] text-black lg:-rotate-90" />
           </div>
-          <div className="h-[409px] w-[532px] rounded-lg  relative">
+          <div className="lg:h-[409px] lg:w-[532px] rounded-lg  relative">
             <img
               src={downloadsection}
               className="flex space-x-4 rounded-xl"

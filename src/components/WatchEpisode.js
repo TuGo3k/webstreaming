@@ -112,7 +112,7 @@ const WatchEpisode = ({ image }) => {
                 </button>
               </div>
               <div
-                className={`transition-all duration-1000 ease-in bg-black  overflow-auto ${
+                className={`transition-all duration-500 ease-in bg-black  overflow-auto ${
                   activeSeason === index ? "max-h-[380px]" : "max-h-0"
                 }`}
               >

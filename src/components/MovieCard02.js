@@ -2,7 +2,7 @@ import { IoIosStar } from "react-icons/io";
 import { BiSolidLike } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import DATA from "../data/movies.json";
-export const MovieCard = ({ movie, id }) => {
+export const MovieCard02 = ({ movie, id }) => {
   return (
     <Link
       to={`/movie/${id}`}

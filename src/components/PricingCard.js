@@ -8,7 +8,7 @@ const PricingCard = ({
 }) => (
   <div
     className={`p-10 h-[596px] w-[360px] text-[12px] bg-[#1f1e24] flex flex-col justify-between text-white rounded-md shadow-md ${
-      highlighted ? "border-4 border-yellow-500" : ""
+      highlighted && "border-4 border-yellow-300" 
     }`}
   >
     <div className="text-center">

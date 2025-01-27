@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import MovieDetail from "./components/MovieDetail";
 import DATA from "./data/movies.json"; // Import JSON directly
 import Header from "./components/Header";
+import Movies from "./pages/Movies";
+import Pricing from "./pages/Pricing";
 
 function App() {
   return (
@@ -17,6 +19,14 @@ function App() {
           path="/movie/:id"
           element={<MovieDetail movies={DATA.movies} />}
         />
+        <Route
+          exact
+          path="/category"
+          element={<Movies movies={DATA.movies} />}
+         
+        />
+    
+        <Route path="/pricing"  element={<Pricing  />} />
       </Routes>
     </Router>
   );
