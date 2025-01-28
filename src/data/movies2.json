@@ -1,0 +1,76 @@
+{
+    "movies": [
+        {
+            "id": 11,
+            "title": "Message in a Bottle",
+            "date": "2021",
+            "image": "/poster01.jpg",
+            "rating": 3.5,
+            "hd": true,
+            "category": "Animation"
+        },
+        {
+            "id": 12,
+            "title": "The Parkar Legend",
+            "date": "2021",
+            "image": "/poster02.jpg",
+            "rating": 3.5,
+            "hd": true,
+            "category": "Animation"
+        },
+        {
+            "id": 13,
+            "title": "The Tonoy 88 Bottle",
+            "date": "2021",
+            "image": "/poster03.jpg",
+            "rating": 3.5,
+            "hd": true,
+            "category": "Drama"
+        },
+        {
+            "id": 14,
+            "title": "The Ackle Bottle",
+            "date": "2021",
+            "image": "/poster04.jpg",
+            "rating": 3.5,
+            "hd": true,
+            "category": "Drama"
+        },
+        {
+            "id": 15,
+            "title": "The Legend of Emo",
+            "date": "2021",
+            "image": "/poster05.jpg",
+            "rating": 3.5,
+            "hd": true,
+            "category": "Romantic"
+        },
+        {
+            "id": 16,
+            "title": "Message in a Bottle",
+            "date": "2021",
+            "image": "/poster06.jpg",
+            "rating": 3.5,
+            "hd": true,
+            "category": "Romantic"
+        },
+        {
+            "id": 17,
+            "title": "The Parkar Legend",
+            "date": "2021",
+            "image": "/poster07.jpg",
+            "rating": 3.5,
+            "hd": true,
+            "category": "Drama"
+        },
+        {
+            "id": 18,
+            "title": "The Tonoy 88 Bottle",
+            "date": "2021",
+            "image": "/poster08.jpg",
+            "rating": 3.5,
+            "hd": true,
+            "category": "Drama"
+        }
+    ]
+}

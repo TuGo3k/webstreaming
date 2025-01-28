@@ -5,7 +5,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { MovieCard } from "./MovieCard";
+import { MovieCard } from "./MovieCard01";
 import DATA from "../data/movies.json";
 
 const cateNames = [
@@ -45,7 +45,7 @@ const NewReleaseMovies = () => {
             spaceBetween={10}
             breakpoints={{
               0: {
-                slidesPerView: 2, // For very small screens (mobile phones)
+                slidesPerView: 3, // For very small screens (mobile phones)
               },
               768: {
                 slidesPerView: 3, // For tablets
@@ -83,7 +83,7 @@ const NewReleaseMovies = () => {
         spaceBetween={20}
         autoplay={{ delay: 3000 }}
         breakpoints={{
-          0: { slidesPerView: 2, spaceBetween: 10 }, // For very small screens
+          0: { slidesPerView: 3, spaceBetween: 10 }, // For very small screens
           768: { slidesPerView: 3, spaceBetween: 15 }, // For tablets
           1024: { slidesPerView: 5, spaceBetween: 20 }, // For larger screens
         }}
@@ -96,7 +96,7 @@ const NewReleaseMovies = () => {
       </Swiper>
 
       {/* Grid layout fallback for mobile */}
-      <div className="md:hidden grid grid-cols-2 gap-4 mt-8">
+      <div className="md:hidden grid grid-cols-4 gap-4 mt-8">
         {filteredMovies.slice(0, 4).map((movie, index) => (
           <div key={index}>
             <MovieCard movie={movie} id={movie.id} />

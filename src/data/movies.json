@@ -7,6 +7,7 @@
         "image": "/poster1.jpg",
         "rating": 3.5,
         "hd": true,
+        "category": "Animation",
         "language": "English"
       },
       {
@@ -16,6 +17,7 @@
         "image": "/poster2.jpg",
         "rating": 3.5,
         "hd": true,
+        "category": "Romantic",
         "language": "English"
       },
       {
@@ -25,6 +27,7 @@
         "image": "/poster3.jpg",
         "rating": 3.5,
         "hd": true,
+        "category": "Drama",
         "language": "English"
       },
       {
@@ -34,6 +37,7 @@
         "image": "/poster4.jpg",
         "rating": 3.5,
         "hd": true,
+        "category": "Romantic",
         "language": "English"
       },
       {
@@ -43,6 +47,7 @@
         "image": "/poster5.jpg",
         "rating": 3.5,
         "hd": true,
+        "category": "Drama",
         "language": "English"
       },
       {
@@ -52,6 +57,7 @@
         "image": "/poster6.jpg",
         "rating": 3.5,
         "hd": true,
+        "category": "Horror",
         "language": "English"
       },
       {
@@ -61,6 +67,7 @@
         "image": "/poster7.jpg",
         "rating": 3.5,
         "hd": true,
+        "category": "Drama",
         "language": "English"
       },
       {
@@ -70,6 +77,7 @@
         "image": "/poster8.jpg",
         "rating": 3.5,
         "hd": true,
+        "category": "Drama",
         "language": "English"
       },
       {
@@ -79,6 +87,7 @@
         "image": "/poster9.jpg",
         "rating": 3.5,
         "hd": true,
+        "category": "Horror",
         "language": "English"
       },
       {
@@ -88,6 +97,7 @@
         "image": "/poster10.jpg",
         "rating": 3.5,
         "hd": true,
+        "category": "Horror",
         "language": "English"
       }
     ]

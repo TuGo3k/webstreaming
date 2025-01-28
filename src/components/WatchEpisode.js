@@ -144,7 +144,7 @@ const WatchEpisode = ({ image }) => {
           <img
             src={image} // Replace with your actual image URL
             alt="Movie Poster"
-            className="rounded-lg shadow-lg h-full w-full"
+            className="rounded-lg shadow-lg h-full w-full object-cover"
           />
         </div>
       </div>

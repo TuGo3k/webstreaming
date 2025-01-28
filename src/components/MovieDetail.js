@@ -25,7 +25,7 @@ const MovieDetail = ({ movies }) => {
   return (
     <div>
       <div
-        className="  bg-gray-900 mt-[105px] text-white p-6  shadow-lg w-full  px-[15%] py-[4%]"
+        className="bg-gray-900 mt-[105px] text-white p-6  shadow-lg w-full  px-[15%] py-[4%]"
         style={{ backgroundImage: `url(${bg})` }}
       >
         <div className=" flex items-center gap-12">
