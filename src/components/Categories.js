@@ -10,7 +10,7 @@ export default function Categories() {
     <div className="bg-gray-900 text-white p-4 md:p-6 rounded-xl max-w-full md:max-w-sm">
       <h2 className="text-lg md:text-xl font-semibold mb-2">
         Categories
-        <div className="w-8 md:w-10 border-b-4 border-yellow-400 mb-4"></div>
+        <div className="w-8 md:w-10 border-b-4 border-yellow-400 rounded-b-md mb-4"></div>
       </h2>
       <ul>
         {categories.map((category, index) => (

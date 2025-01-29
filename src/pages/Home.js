@@ -152,7 +152,7 @@ const Home = () => {
                 initial="hidden"
                 animate="show"
                 exit="exit"
-                className="mt-8 px-6 py-3 border-yellow-300 border-2 rounded-full flex items-center gap-2 font-bold text-white hover:bg-yellow-300 hover:text-black mx-auto md:mx-0"
+                className="hidden lg:flex mt-8 px-6 py-3 border-[#e4d804] border-2 rounded-full items-center gap-2 font-bold text-white hover:bg-yellow-300 hover:text-black mx-auto md:mx-0"
               >
                 <FiPlay className="text-lg" />
                 Watch Now
@@ -173,6 +173,16 @@ const Home = () => {
                 className="w-full h-full object-cover transition-transform duration-500 ease-in-out transform hover:scale-105"
               />
             </motion.div>
+            <motion.button
+                variants={fadeIn("up", 1.1)}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+                className="flex lg:hidden my-5 px-6 py-3 border-[#e4d804] border-2 rounded-full  items-center gap-2 font-bold text-white hover:bg-yellow-300 hover:text-black mx-auto md:mx-0"
+              >
+                <FiPlay className="text-lg" />
+                Watch Now
+              </motion.button>
           </div>
         )
     )}

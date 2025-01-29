@@ -73,7 +73,7 @@ const MovieDetail = ({ movies }) => {
                 
             </div>
             </div>
-           <button className=" px-7 py-3.5 border-yellow-300 border-2 rounded-full flex items-center gap-2 font-bold text-[10px] text-white hover:bg-yellow-300 hover:text-black">
+           <button className=" px-7 py-3.5 border-[#e4d804] border-2 rounded-full flex items-center gap-2 font-bold text-[10px] text-white hover:bg-yellow-300 hover:text-black">
               <FiPlay className="text-md" />
               Watch Now
             </button>

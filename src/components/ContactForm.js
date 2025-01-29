@@ -4,7 +4,7 @@ const ContactForm = () => {
   return (
     <div>
       <h2 className="text-white text-xl md:text-2xl font-bold mb-4">Contact Form</h2>
-      <div className="w-12 h-1 bg-yellow-400 mb-6"></div>
+      <div className="w-12 h-1 rounded-b-md bg-yellow-400 mb-6"></div>
       <div className="border border-slate-800 p-6 md:p-8 rounded-lg shadow-lg w-full">
         <form className="space-y-4">
           {/* Name and Email */}

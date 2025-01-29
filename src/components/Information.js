@@ -5,7 +5,7 @@ const Information = () => {
   return (
     <div>
       <h2 className="text-white text-xl md:text-2xl font-bold mb-3">Information</h2>
-      <div className="w-12 h-1 bg-yellow-400 mb-6"></div>
+      <div className="w-12 h-1 rounded-b-md bg-yellow-400 mb-6"></div>
       <div className="bg-[#1f1e24] p-6 md:p-8 rounded-lg shadow-lg w-full">
         <p className="text-gray-400 mb-4">
           <strong className="text-white">Find solutions</strong>: to common

@@ -8,7 +8,7 @@ const Contact = () => {
   return (
     <>
       <div
-        className="px-6 md:px-[15%] flex flex-col w-full  md:mt-[5%] py-6 md:py-[5%] gap-8 md:gap-16"
+        className="px-6 md:px-[15%] flex flex-col w-full  md:mt-[5%] py-6 md:py-[9%] gap-8 md:gap-16"
         style={{ backgroundImage: `url(${bg})` }}
       >
         <div className="flex flex-col md:flex-row gap-8 md:gap-16">
@@ -20,6 +20,16 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <div class="w-full">
+    <iframe 
+        class="w-full h-[500px] border-0" 
+        scrolling="no" 
+        marginheight="0" 
+        marginwidth="0" 
+        src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+    </iframe>
+</div>
+
       <Footer />
     </>
   );

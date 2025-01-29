@@ -33,8 +33,11 @@ const NewReleaseMovies = () => {
     >
       {/* Category Swiper */}
       <div className="flex flex-col md:flex-row w-full justify-between items-center text-center mb-8">
-        <h2 className="text-2xl md:text-4xl font-bold mb-6 md:mb-0">
+        <h2 className="text-2xl md:text-4xl font-bold mb-6 md:mb-0 place-items-center lg:place-items-start">
           New Release Movies
+          <div className=" section-title w-[98px] rounded-b-md h-[4px] lg:h-[5px] bg-[#e4d804] mt-1 lg:mt-3 text-center mb-70 flex justify-center">
+              <div className="w-[30px] rounded-b-md mt-1  h-[3px] bg-[#e4d804]"></div>
+            </div>
         </h2>
         <div className="w-full px-0 lg:mx-0 lg:w-[35%] flex justify-center lg:justify-end">
           <Swiper
@@ -62,7 +65,7 @@ const NewReleaseMovies = () => {
                     setChosen(index);
                     setActiveCategory(category.title);
                   }}
-                  className={`rounded-full border-2 px-4 lg:px-6 py-2 text-sm font-bold ${
+                  className={`rounded-full border-2 px-4 py-2 text-sm font-bold ${
                     chosen === index
                       ? "border-yellow-300 text-yellow-300"
                       : "border-white text-white"
@@ -96,8 +99,8 @@ const NewReleaseMovies = () => {
       </Swiper>
 
       {/* Grid layout fallback for mobile */}
-      <div className="md:hidden grid grid-cols-4 gap-4 mt-8">
-        {filteredMovies.slice(0, 4).map((movie, index) => (
+      <div className="md:hidden grid grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
+        {filteredMovies.slice(0, 6).map((movie, index) => (
           <div key={index}>
             <MovieCard movie={movie} id={movie.id} />
           </div>
