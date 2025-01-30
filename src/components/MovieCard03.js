@@ -1,7 +1,9 @@
 import { FaUser, FaComment, FaClock } from "react-icons/fa";
 import { BiSolidLike } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
-const MovieCard03 = ({ data }) => {
+const MovieCard03 = ({ data, id }) => {
+ 
   return (
     <div className="mx-auto bg-gray-900 text-white rounded-lg overflow-hidden shadow-lg">
       {/* Image Section */}
@@ -37,9 +39,9 @@ const MovieCard03 = ({ data }) => {
 
         {/* Read More */}
         <div className="flex justify-end">
-          <button className="text-yellow-400 font-bold text-sm hover:underline flex items-center">
+          <Link to={`/post/${id}`} className="text-yellow-400 font-bold text-sm hover:underline flex items-center">
             Read More <span className="ml-1">»</span>
-          </button>
+          </Link>
         </div>
       </div>
     </div>

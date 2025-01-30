@@ -7,7 +7,7 @@ const AboutHistory = () => {
         <h2 className="text-[24px] font-bold px-[40px] py-[25px] bg-black mb-4">
           About <span className=" text-yellow-400">History</span>
         </h2>
-        <p className="text-gray-400 w-full px-[25px]">
+        <p className="text-gray-400 w-full px-[25px] text-center lg:text-start">
           Lorem ipsum dolor sit amet, consectetur adipiscing elseddo eiusmod
           tempor. There are many variations of passages of Lorem Ipsum
           available, but the majority have suffered alteration in some injected

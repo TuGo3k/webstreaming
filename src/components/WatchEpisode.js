@@ -140,7 +140,7 @@ const WatchEpisode = ({ image }) => {
         </div>
 
         {/* Right Side: Poster */}
-        <div className="lg:w-1/3 flex flex-col items-center lg:items-end mt-10 lg:mt-0 h-[526px]">
+        <div className="lg:w-1/3 hidden lg:flex flex-col items-center lg:items-end mt-10 lg:mt-0 h-[526px]">
           <img
             src={image} // Replace with your actual image URL
             alt="Movie Poster"

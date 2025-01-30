@@ -81,7 +81,7 @@ const Header = ({ active, setActive }) => {
 
       {/* Sign-In Button */}
       <Link
-        to={"login"}
+        to={"/login"}
         className="hidden md:block text-[14px] border-2 border-yellow-400 rounded-full px-9 py-3 text-white font-bold bg-[#12151e] hover:bg-[#e4d804] hover:text-black"
       >
         SIGN IN

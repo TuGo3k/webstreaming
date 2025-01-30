@@ -1,6 +1,7 @@
 {
     "vlog": [
         {
+            "id": 1,
             "image": "/blog_thumb01.jpg",
             "date": "10 Mar 2021",
             "title": "Your Free Movie Streaming Purposes",
@@ -10,6 +11,7 @@
             "comments": 12
         },
         {
+            "id": 2,
             "image": "/blog_thumb02.jpg",
             "date": "10 Mar 2021",
             "title": "Your Free Movie Streaming Purposes",
@@ -19,6 +21,7 @@
             "comments": 12
         },
         {
+            "id": 3,
             "image": "/blog_thumb03.jpg",
             "date": "10 Mar 2021",
             "title": "Your Free Movie Streaming Purposes",
