@@ -6,7 +6,7 @@ const PricingStrategy = () => {
   const prices = data.prices;
 
   return (
-    <div className="bg-[#14141c] text-white py-16 px-6 md:px-16">
+    <div className="bg-[#14141c] text-white pt-[20%] lg:py-16 pb-[10%] px-6 md:px-16">
       <div className="text-center mb-8">
         <h2 className="text-2xl md:text-4xl font-bold w-full flex flex-col items-center">
           Our Pricing Strategy

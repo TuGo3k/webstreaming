@@ -23,8 +23,8 @@ import VLOGSDATA from "./data/vlog.json";
 function App() {
   const allMovies = [...DATA.movies, ...DATA2.movies];
   // const [active, setActive] = useState("НҮҮР");
-  const currentUrl = window.location.pathname;
-  console.log(currentUrl);
+
+
   const [active, setActive] = useState(() => {
     const currentUrl = window.location.pathname;
     if (currentUrl.includes("/movie/")) {
@@ -40,7 +40,7 @@ function App() {
     } else if (currentUrl === "/contact") {
       return "ХОЛБОО БАРИХ";
     } else if (currentUrl === "/login") {
-      return "login";
+      return "";
     }
     return "НҮҮР"; // Default
   });
@@ -57,7 +57,7 @@ function App() {
 
 function MainContent({ setActive, allMovies }) {
   const location = useLocation();
-  console.log(location);
+  
 
   useEffect(() => {
     if (location.pathname.includes("/movie/")) {
