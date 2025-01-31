@@ -97,17 +97,17 @@ const Home = () => {
   return (
     <div>
       <div
-  className="relative lg:mt-[100px] bg-cover bg-center bg-no-repeat h-[650px] flex items-center justify-center"
+  className="relative lg:mt-[100px] bg-cover bg-center bg-no-repeat lg:h-[650px] flex items-center justify-center"
   style={{ backgroundImage: `url(${moviebg})` }}
 >
-  <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+  <div className="absolute lg:mt-0  inset-0 bg-black bg-opacity-50"></div>
   <AnimatePresence>
     {slidemovies.map(
       (el, index) =>
         index === activeIndex && (
           <div
             key={el.title}
-            className="relative z-10 flex flex-col md:flex-row w-full h-full items-center gap-8 mx-[5%] md:mx-[13%] text-white p-8"
+            className="relative z-10 flex flex-col md:flex-row w-full h-full items-center gap-8 mx-[5%] md:mx-[13%] text-white p-8 mt-[20%] lg:mt-0"
           >
             {/* Left Side: Text Content */}
             <motion.div

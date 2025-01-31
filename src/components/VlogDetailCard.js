@@ -25,7 +25,7 @@ const PostPage = ({ data = [] }) => {
   return (
     // lg:mt-6 px-6 md:px-[10%] lg:px-[15%] py-6 md:py-[5%] flex flex-col lg:flex-row bg-cover bg-center bg-no-repeat gap-8 md:gap-12 lg:gap-16
     <div
-      className="min-h-screen w-full lg:px-[15%] lg:mt-6 py-[5%] lg:gap-16 flex items-start justify-between  bg-gray-900 p-4"
+      className="min-h-screen w-full lg:px-[15%] pt-[20%] lg:pt-[5%] pb-[5%] lg:pb-0 lg:mt-6   lg:gap-16 flex items-start justify-between  bg-gray-900 p-4"
       style={{ backgroundImage: `url(${BgPic})` }}
     >
       <div className="lg:w-2/3 bg-gray-800 text-white rounded-lg overflow-hidden shadow-lg">

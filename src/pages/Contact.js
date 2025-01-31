@@ -8,7 +8,7 @@ const Contact = () => {
   return (
     <>
       <div
-        className="px-6 md:px-[15%] flex flex-col w-full  md:mt-[5%] py-6 md:py-[9%] gap-8 md:gap-16"
+        className="px-6 md:px-[15%] flex flex-col w-full  md:mt-[5%] pb-[5%] pt-[20%] md:py-[9%] gap-8 md:gap-16"
         style={{ backgroundImage: `url(${bg})` }}
       >
         <div className="flex flex-col md:flex-row gap-8 md:gap-16">

@@ -6,7 +6,7 @@ import Categories from "./Categories";
 
 export const VlogSidebar = ({ data }) => {
   return (
-    <div className="w-full lg:w-1/3 gap-6 flex flex-col">
+    <div className="hidden gap-6 lg:flex flex-col">
       <SearchBox />
       <Categories />
       <RecentPosts data={data} />

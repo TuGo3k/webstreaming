@@ -19,13 +19,35 @@ import Login from "./pages/Login";
 import CreateAccount from "./pages/CreateAccount";
 import PostPage from "./components/VlogDetailCard";
 import VLOGSDATA from "./data/vlog.json";
+
 function App() {
   const allMovies = [...DATA.movies, ...DATA2.movies];
-  const [active, setActive] = useState("НҮҮР");
+  // const [active, setActive] = useState("НҮҮР");
+  const currentUrl = window.location.pathname;
+  console.log(currentUrl);
+  const [active, setActive] = useState(() => {
+    const currentUrl = window.location.pathname;
+    if (currentUrl.includes("/movie/")) {
+      return "КИНО";
+    } else if (currentUrl === "/") {
+      return "НҮҮР";
+    } else if (currentUrl.includes("/category")) {
+      return "КИНО";
+    } else if (currentUrl === "/pricing") {
+      return "ҮНЭ";
+    } else if (currentUrl.includes("/vlogs")) {
+      return "ВЛОГ";
+    } else if (currentUrl === "/contact") {
+      return "ХОЛБОО БАРИХ";
+    } else if (currentUrl === "/login") {
+      return "login";
+    }
+    return "НҮҮР"; // Default
+  });
 
   return (
     <Router>
-      <Header active={active} setActive={setActive} allMovies={allMovies}/>
+      <Header active={active} setActive={setActive} allMovies={allMovies} />
 
       {/* Wrap the Routes inside a component where useLocation() is valid */}
       <MainContent setActive={setActive} allMovies={allMovies} />
@@ -35,6 +57,7 @@ function App() {
 
 function MainContent({ setActive, allMovies }) {
   const location = useLocation();
+  console.log(location);
 
   useEffect(() => {
     if (location.pathname.includes("/movie/")) {
