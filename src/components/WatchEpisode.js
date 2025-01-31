@@ -75,7 +75,7 @@ const WatchEpisode = ({ image }) => {
   return (
     <div>
         <div
-      className="min-h-screen  text-white flex flex-col items-center py-10 px-[15%]"
+      className="min-h-screen  text-white flex flex-col items-center py-10 px-[10%] lg:px-[15%]"
       style={{ backgroundImage: `url(${bg})` }}
     >
       {/* Main Title */}

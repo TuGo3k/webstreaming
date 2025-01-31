@@ -26,34 +26,34 @@ const Home = () => {
       releaseDate: "2021",
       length: "120",
     },
-    // {
-    //   title: "Unlimited",
-    //   pic: "/pro2.jpg",
-    //   genre: "Horror, Drama",
-    //   releaseDate: "2011",
-    //   length: "173",
-    // },
-    // {
-    //   title: "Unlimited",
-    //   pic: "/pro3.jpg",
-    //   genre: "Romance, action",
-    //   releaseDate: "2008",
-    //   length: "117",
-    // },
-    // {
-    //   title: "Unlimited",
-    //   pic: "/pro4.jpg",
-    //   genre: "thriller animation",
-    //   releaseDate: "2015",
-    //   length: "159",
-    // },
+    {
+      title: "Unlimited",
+      pic: "/pro2.jpg",
+      genre: "Horror, Drama",
+      releaseDate: "2011",
+      length: "173",
+    },
+    {
+      title: "Unlimited",
+      pic: "/pro3.jpg",
+      genre: "Romance, action",
+      releaseDate: "2008",
+      length: "117",
+    },
+    {
+      title: "Unlimited",
+      pic: "/pro4.jpg",
+      genre: "thriller animation",
+      releaseDate: "2015",
+      length: "159",
+    },
   ];
   const fadeInOut = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        duration: 1,
+        duration: 1.5,
         ease: [0.25, 0.25, 0.25, 0.75],
       },
     },
@@ -71,7 +71,7 @@ const Home = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % slidemovies.length);
-    }, 3000); // Change card every 3 seconds
+    }, 5000); // Change card every 3 seconds
     return () => clearInterval(interval);
   }, []);
 

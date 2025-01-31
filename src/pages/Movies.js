@@ -32,7 +32,7 @@ const Movies = ({ movies }) => {
         className="fixed top-0 left-0 w-full h-full bg-cover bg-center -z-10"
         style={{ backgroundImage: `url(/ucm_bg02.jpg)` }}
       ></div>
-      <div className="lg:mt-[5%] px-[15%] py-[5%] ">
+      <div className="lg:mt-[5%] px-[15%] lg:pt-[5%] lg:pb-[5%] pb-[25%]">
         {/* Category Slider */}
         <div className="flex flex-col md:flex-row w-full justify-between items-center text-center py-8">
           <h2 className="text-2xl md:text-4xl font-bold mb-6 md:mb-0 text-white place-items-center lg:place-items-start">

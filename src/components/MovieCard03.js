@@ -39,7 +39,7 @@ const MovieCard03 = ({ data, id }) => {
 
         {/* Read More */}
         <div className="flex justify-end">
-          <Link to={`/post/${id}`} className="text-yellow-400 font-bold text-sm hover:underline flex items-center">
+          <Link to={`/vlogs/${id}`} className="text-yellow-400 font-bold text-sm hover:underline flex items-center">
             Read More <span className="ml-1">»</span>
           </Link>
         </div>

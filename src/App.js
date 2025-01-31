@@ -18,14 +18,14 @@ import { useState, useEffect } from "react";
 import Login from "./pages/Login";
 import CreateAccount from "./pages/CreateAccount";
 import PostPage from "./components/VlogDetailCard";
-import  MOVIESDATA from "./data/vlog.json";
+import VLOGSDATA from "./data/vlog.json";
 function App() {
   const allMovies = [...DATA.movies, ...DATA2.movies];
   const [active, setActive] = useState("НҮҮР");
- 
+
   return (
     <Router>
-      <Header active={active} setActive={setActive} />
+      <Header active={active} setActive={setActive} allMovies={allMovies}/>
 
       {/* Wrap the Routes inside a component where useLocation() is valid */}
       <MainContent setActive={setActive} allMovies={allMovies} />
@@ -47,7 +47,6 @@ function MainContent({ setActive, allMovies }) {
     "https://picsum.photos/800/600?random=3",
     "https://picsum.photos/800/600?random=4",
     "https://picsum.photos/800/600?random=5",
-   
   ];
   const [bgImage, setBgImage] = useState(images[0]);
   const [isFading, setIsFading] = useState(false);
@@ -67,7 +66,13 @@ function MainContent({ setActive, allMovies }) {
     return () => clearInterval(interval); // Cleanup on unmount
   }, []);
 
-  const data = MOVIESDATA.vlog;
+  const data = VLOGSDATA.vlog;
+
+  const [selectedId, setSelectedId] = useState(null);
+
+  const handleSelectVlog = (id) => {
+    setSelectedId(id);
+  };
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
@@ -83,11 +88,37 @@ function MainContent({ setActive, allMovies }) {
       />
       <Route exact path="/all" element={<Movies movies={allMovies} />} />
       <Route path="/pricing" element={<Pricing />} />
-      <Route path="/vlog" element={<Vlog data={data}/>} />  
-      <Route path="/post/:id" element={<PostPage Vlogs={data} />} />
+      <Route
+        path="/vlogs/"
+        element={
+          <Vlog
+            handleSelectVlog={handleSelectVlog}
+            selectedId={selectedId}
+            setSelectedId={setSelectedId}
+            data={data}
+          />
+        }
+      />
+      <Route
+        path="/vlogs/:id"
+        element={
+          <PostPage
+            data={data}
+            // handleSelectVlog={handleSelectVlog}
+            // selectedId={selectedId}
+            // setSelectedId={setSelectedId}
+          />
+        }
+      />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/login" element={<Login  bg={bgImage} isFading={isFading}/>} />
-      <Route path="/signup" element={<CreateAccount bg={bgImage} isFading={isFading} />} />
+      <Route
+        path="/login"
+        element={<Login bg={bgImage} isFading={isFading} />}
+      />
+      <Route
+        path="/signup"
+        element={<CreateAccount bg={bgImage} isFading={isFading} />}
+      />
     </Routes>
   );
 }
