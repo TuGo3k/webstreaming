@@ -19,7 +19,7 @@ import Login from "./pages/Login";
 import CreateAccount from "./pages/CreateAccount";
 import PostPage from "./components/VlogDetailCard";
 import VLOGSDATA from "./data/vlog.json";
-
+import Search from "./pages/Search";
 function App() {
   const allMovies = [...DATA.movies, ...DATA2.movies];
   // const [active, setActive] = useState("НҮҮР");
@@ -41,24 +41,27 @@ function App() {
       return "ХОЛБОО БАРИХ";
     } else if (currentUrl === "/login") {
       return "";
+    }  else if (currentUrl === "/search") {
+      return "";
     }
     return "НҮҮР"; // Default
   });
-
+  const [filteredMovies, setFilteredMovies] = useState([]);
+  const [search, setSearch] = useState("");
   return (
     <Router>
-      <Header active={active} setActive={setActive} allMovies={allMovies} />
+      <Header active={active} setActive={setActive} allMovies={allMovies} filteredMovies={filteredMovies} setFilteredMovies={setFilteredMovies} setSearch={setSearch} search={search}/>
 
       {/* Wrap the Routes inside a component where useLocation() is valid */}
-      <MainContent setActive={setActive} allMovies={allMovies} />
+      <MainContent setActive={setActive} allMovies={allMovies} filteredMovies={filteredMovies} search={search}/>
     </Router>
   );
 }
 
-function MainContent({ setActive, allMovies }) {
+function MainContent({ setActive, allMovies, filteredMovies, search }) {
   const location = useLocation();
   
-
+  const value = search
   useEffect(() => {
     if (location.pathname.includes("/movie/")) {
       setActive("КИНО");
@@ -108,6 +111,13 @@ function MainContent({ setActive, allMovies }) {
         exact
         path="/category"
         element={<Movies movies={DATA2.movies} />}
+      />
+      <Route
+        exact
+        path="/search"
+        element={<Search 
+          search={value}
+          filteredMovies={filteredMovies}/>}
       />
       <Route exact path="/all" element={<Movies movies={allMovies} />} />
       <Route path="/pricing" element={<Pricing />} />

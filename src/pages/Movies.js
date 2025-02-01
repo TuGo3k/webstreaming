@@ -80,7 +80,7 @@ const Movies = ({ movies }) => {
 
         {/* Movies Slider */}
 
-        <div className="grid grid-cols-3 lg:grid-cols-4 lg:grid-cols-4 gap-3 lg:gap-10 transition-all duration-300 ease-in-out">
+        <div className="grid grid-cols-3  lg:grid-cols-4 gap-3 lg:gap-10 transition-all duration-300 ease-in-out">
           {filteredMovies.map((movie, index) => (
             <MovieCard02 key={index} movie={movie} id={movie.id} />
           ))}

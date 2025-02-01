@@ -3,15 +3,18 @@ import { FiSearch, FiMenu, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Logo from "../assets/images/logo.png";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const Header = ({ active, setActive, allMovies }) => {
+
+const Header = ({ active, setActive, allMovies, filteredMovies, setFilteredMovies, search, setSearch}) => {
   // const [showNavbar, setShowNavbar] = useState(true);
-  const [search, setSearch] = useState("");
-  const [filteredMovies, setFilteredMovies] = useState([]);
+  
+  // const [filteredMovies, setFilteredMovies] = useState([]);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const searchRef = useRef(null); // Ref to detect outside clicks
   const mobileMenuRef = useRef(null); // Ref to detect clicks outside mobile menu
+  const desktopResultRef = useRef(null); // Ref to detect clicks outside mobile menu
 
   const categories = [
     { title: "НҮҮР", route: "/" },
@@ -21,17 +24,40 @@ const Header = ({ active, setActive, allMovies }) => {
     { title: "ВЛОГ", route: "/vlogs" },
     { title: "ХОЛБОО БАРИХ", route: "/contact" },
   ];
-
+  const navigate = useNavigate();
   // Handle search & update filtered movies
-  const handleSearch = async (e) => {
+  const handleSearch = (e) => {
     const { value } = e.target;
     setSearch(value);
-    const filtered = await allMovies.filter((movie) =>
-      movie.title.toLowerCase().includes(value.toLowerCase())
+  
+   
+  
+    const filtered = allMovies.filter(
+      (movie) => movie.title && typeof movie.title === "string" && movie.title.toLowerCase().includes(value.toLowerCase())
     );
+    
+  
     setFilteredMovies(filtered);
+  
+    // Redirect to the search page
+    navigate("/search");
   };
-
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSearch(e);
+      setIsMobileMenuOpen(false);
+      setSearch(""); // Clear search when entering search key
+      console.log('mobile search clicked')
+    }
+  }
+  const searchIcon = (e) => {
+    
+      handleSearch(e);
+      setIsMobileMenuOpen(false);
+      setSearch(""); // Clear search when entering search key
+      console.log('mobile search clicked')
+    
+  }
   // Close search when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -39,7 +65,9 @@ const Header = ({ active, setActive, allMovies }) => {
         searchRef.current &&
         !searchRef.current.contains(event.target) &&
         mobileMenuRef.current &&
-        !mobileMenuRef.current.contains(event.target)
+        !mobileMenuRef.current.contains(event.target) &&
+        desktopResultRef.current &&
+        !desktopResultRef.current.contains(event.target)
       ) {
         setSearch(""); // Clear search when clicking outside
         setIsMobileMenuOpen(false); // Close the mobile menu when clicking outside
@@ -65,7 +93,7 @@ const Header = ({ active, setActive, allMovies }) => {
       setInvisibleLogin(false);
     }
   }, [location.pathname]);
-
+  
   return (
     <div className="w-full fixed top-0 left-0 bg-[#252631] lg:h-[106px] lg:flex justify-evenly items-center py-5 px-[5%] md:px-[9%] z-20">
       <div className="flex items-center justify-between">
@@ -121,15 +149,16 @@ const Header = ({ active, setActive, allMovies }) => {
           type="text"
           placeholder="Find Favorite Movie"
           value={search}
+          onKeyPress={handleKeyPress}
           onChange={handleSearch}
           className="flex-1 border-none text-white bg-[#12151e] outline-none placeholder-gray-400"
         />
         <div className="text-[#78a3af]">|</div>
-        <FiSearch className="text-yellow-300 text-lg ml-3 hover:cursor-pointer" />
+        <FiSearch onClick={searchIcon} className="text-yellow-300 text-lg ml-3 hover:cursor-pointer" />
 
         {/* Desktop Search Results */}
         {search && (
-          <div className="absolute left-0 top-full w-full bg-[#242c38] mt-1 shadow-lg rounded-md">
+          <div ref={desktopResultRef} className="absolute left-0 top-full w-full bg-[#242c38] mt-1 shadow-lg rounded-md">
             {filteredMovies.length > 0 && (
               <div className="max-h-72 overflow-auto">
                 {filteredMovies.map((movie) => (
@@ -160,11 +189,12 @@ const Header = ({ active, setActive, allMovies }) => {
           className="MOBILE_SEARCHBAR absolute transition-all duration-1000 ease-in-out left-0 w-full bg-[#252631] text-white flex flex-col gap-4 p-4 z-30 md:hidden"
         >
           {/* Mobile search bar */}
-          <div className="relative flex items-center bg-[#12151e] h-[46px] p-3 rounded-full mt-4">
+          <div  className="relative flex items-center bg-[#12151e] h-[46px] p-3 rounded-full mt-4">
             <input
               type="text"
               placeholder="Find Favorite Movie"
               value={search}
+              onKeyPress={handleKeyPress}
               onChange={(e) => {
                 setSearch(e.target.value); // Update state
                 handleSearch(e); // Call the function properly
@@ -172,7 +202,7 @@ const Header = ({ active, setActive, allMovies }) => {
               className="flex-1 border-none text-white bg-[#12151e] outline-none placeholder-gray-400"
             />
             <div className="text-[#78a3af]">|</div>
-            <FiSearch className="text-yellow-300 text-lg ml-3 hover:cursor-pointer" />
+            <FiSearch onClick={searchIcon} className="text-yellow-300 text-lg ml-3 hover:cursor-pointer" />
 
             {/* Mobile Search Results */}
             {search && (
