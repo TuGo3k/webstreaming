@@ -1,6 +1,6 @@
 import React from "react";
-import ContactForm from "../components/ContactForm";
-import Information from "../components/Information";
+import ContactForm from "../components/Contact/ContactForm";
+import Information from "../components/Contact/Information";
 import bg from "../assets/images/episode_bg.jpg";
 import Footer from "../components/Footer";
 

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Header from "./Header";
-import bg from "../assets/images/moviesbg2.jpg";
+import Header from "../Header";
+import bg from "../../assets/images/moviesbg2.jpg";
 import { FiPlay } from "react-icons/fi";
 import { FaRegCalendarAlt, FaRegClock } from "react-icons/fa";
 import { GoDownload } from "react-icons/go";
@@ -58,9 +58,9 @@ const MovieDetail = ({ movies }) => {
             </div>
 
             <p className="mt-4 text-sm md:text-base leading-relaxed max-h-[100px] md:max-h-none overflow-hidden">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-              est leo, hendrerit eget hendrerit sed, ultrices imperdiet sem.
-              Vestibulum eget ligula nunc. Phasellus...
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Vestibulum est leo, hendrerit eget hendrerit sed, ultrices
+              imperdiet sem. Vestibulum eget ligula nunc. Phasellus...
             </p>
 
             {/* Streaming and Watch Now */}
@@ -72,7 +72,9 @@ const MovieDetail = ({ movies }) => {
                 </div>
                 <div>
                   <h4 className="font-bold text-[16px]">Prime Video</h4>
-                  <h6 className="text-[12px] text-gray-400">Streaming Channels</h6>
+                  <h6 className="text-[12px] text-gray-400">
+                    Streaming Channels
+                  </h6>
                 </div>
               </div>
 

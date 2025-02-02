@@ -5,8 +5,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { MovieCard } from "./MovieCard01";
-import DATA from "../data/movies.json";
+import { MovieCard } from "../Cards/MovieCard01";
+import DATA from "../../data/movies.json";
 
 const cateNames = [
   { title: "Animation" },
@@ -15,7 +15,7 @@ const cateNames = [
   { title: "Drama" },
 ];
 
-const NewReleaseMovies = () => {
+const NewReleaseMovies = ({ setIsMobileMenuOpen }) => {
   const [chosen, setChosen] = useState(1); // Default to "Movies"
   const [activeCategory, setActiveCategory] = useState("Movies");
   const movies = DATA.movies;
@@ -36,8 +36,8 @@ const NewReleaseMovies = () => {
         <h2 className="text-2xl md:text-4xl font-bold mb-6 md:mb-0 place-items-center lg:place-items-start">
           New Release Movies
           <div className=" section-title w-[98px] rounded-b-md h-[4px] lg:h-[5px] bg-[#e4d804] mt-1 lg:mt-3 text-center mb-70 flex justify-center">
-              <div className="w-[30px] rounded-b-md mt-1  h-[3px] bg-[#e4d804]"></div>
-            </div>
+            <div className="w-[30px] rounded-b-md mt-1  h-[3px] bg-[#e4d804]"></div>
+          </div>
         </h2>
         <div className="w-full px-0 lg:mx-0 lg:w-[35%] flex justify-center lg:justify-end">
           <Swiper
@@ -93,7 +93,11 @@ const NewReleaseMovies = () => {
       >
         {filteredMovies.map((movie, index) => (
           <SwiperSlide key={index}>
-            <MovieCard movie={movie} id={movie.id} />
+            <MovieCard
+              setIsMobileMenuOpen={setIsMobileMenuOpen}
+              movie={movie}
+              id={movie.id}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -102,7 +106,11 @@ const NewReleaseMovies = () => {
       <div className="md:hidden grid grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
         {filteredMovies.slice(0, 6).map((movie, index) => (
           <div key={index}>
-            <MovieCard movie={movie} id={movie.id} />
+            <MovieCard
+              setIsMobileMenuOpen={setIsMobileMenuOpen}
+              movie={movie}
+              id={movie.id}
+            />
           </div>
         ))}
       </div>

@@ -6,15 +6,15 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 
-const Header = ({ active, setActive, allMovies, filteredMovies, setFilteredMovies, search, setSearch}) => {
+const Header = ({ active, setActive, allMovies, filteredMovies, setFilteredMovies, search, setSearch, searchRef, mobileMenuRef, desktopResultRef, isMobileMenuOpen, setIsMobileMenuOpen}) => {
   // const [showNavbar, setShowNavbar] = useState(true);
   
   // const [filteredMovies, setFilteredMovies] = useState([]);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
 
-  const searchRef = useRef(null); // Ref to detect outside clicks
-  const mobileMenuRef = useRef(null); // Ref to detect clicks outside mobile menu
-  const desktopResultRef = useRef(null); // Ref to detect clicks outside mobile menu
+  // const searchRef = useRef(null); // Ref to detect outside clicks
+  // const mobileMenuRef = useRef(null); // Ref to detect clicks outside mobile menu
+  // const desktopResultRef = useRef(null); // Ref to detect clicks outside mobile menu
 
   const categories = [
     { title: "НҮҮР", route: "/" },

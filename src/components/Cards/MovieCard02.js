@@ -1,12 +1,13 @@
 import { IoIosStar } from "react-icons/io";
 import { BiSolidLike } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import DATA from "../data/movies.json";
-export const MovieCard02 = ({ movie, id }) => {
+import DATA from "../../data/movies.json";
+export const MovieCard02 = ({ movie, id, setIsMobileMenuOpen }) => {
   return (
     <div>
       <Link
         to={`/movie/${id}`}
+        onClick={() => setIsMobileMenuOpen(false)}
         className="flex flex-col lg:w-[300px]  lg:h-full justify-between text-white   rounded-lg shadow-md lg:mb-10 duration-150px transition-all ease-in-out"
       >
         <div className="fuck w-full flex flex-col lg:h-full items-center gap-1 mb-5">

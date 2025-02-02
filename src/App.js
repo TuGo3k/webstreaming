@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
-import MovieDetail from "./components/MovieDetail";
+import MovieDetail from "./components/Movie/MovieDetail";
 import DATA from "./data/movies.json";
 import DATA2 from "./data/movies2.json";
 import Header from "./components/Header";
@@ -17,13 +17,13 @@ import Contact from "./pages/Contact";
 import { useState, useEffect } from "react";
 import Login from "./pages/Login";
 import CreateAccount from "./pages/CreateAccount";
-import PostPage from "./components/VlogDetailCard";
+import PostPage from "./components/Cards/VlogDetailCard";
 import VLOGSDATA from "./data/vlog.json";
 import Search from "./pages/Search";
+import { useRef } from "react";
 function App() {
   const allMovies = [...DATA.movies, ...DATA2.movies];
   // const [active, setActive] = useState("НҮҮР");
-
 
   const [active, setActive] = useState(() => {
     const currentUrl = window.location.pathname;
@@ -41,27 +41,62 @@ function App() {
       return "ХОЛБОО БАРИХ";
     } else if (currentUrl === "/login") {
       return "";
-    }  else if (currentUrl === "/search") {
+    } else if (currentUrl === "/search") {
       return "";
     }
     return "НҮҮР"; // Default
   });
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [search, setSearch] = useState("");
+  const searchRef = useRef(null); // Ref to detect outside clicks
+  const mobileMenuRef = useRef(null); // Ref to detect clicks outside mobile menu
+  const desktopResultRef = useRef(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
     <Router>
-      <Header active={active} setActive={setActive} allMovies={allMovies} filteredMovies={filteredMovies} setFilteredMovies={setFilteredMovies} setSearch={setSearch} search={search}/>
+      <Header
+        active={active}
+        setActive={setActive}
+        allMovies={allMovies}
+        filteredMovies={filteredMovies}
+        setFilteredMovies={setFilteredMovies}
+        setSearch={setSearch}
+        search={search}
+        searchRef={searchRef}
+        mobileMenuRef={mobileMenuRef}
+        desktopResultRef={desktopResultRef}
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+        isMobileMenuOpen={isMobileMenuOpen}
+      />
 
       {/* Wrap the Routes inside a component where useLocation() is valid */}
-      <MainContent setActive={setActive} allMovies={allMovies} filteredMovies={filteredMovies} search={search}/>
+      <MainContent
+        setActive={setActive}
+        allMovies={allMovies}
+        filteredMovies={filteredMovies}
+        search={search}
+        searchRef={searchRef}
+        mobileMenuRef={mobileMenuRef}
+        desktopResultRef={desktopResultRef}
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+      />
     </Router>
   );
 }
 
-function MainContent({ setActive, allMovies, filteredMovies, search }) {
+function MainContent({
+  setActive,
+  allMovies,
+  filteredMovies,
+  search,
+  searchRef,
+  mobileMenuRef,
+  desktopResultRef,
+  setIsMobileMenuOpen,
+}) {
   const location = useLocation();
-  
-  const value = search
+
+  const value = search;
   useEffect(() => {
     if (location.pathname.includes("/movie/")) {
       setActive("КИНО");
@@ -101,26 +136,79 @@ function MainContent({ setActive, allMovies, filteredMovies, search }) {
   };
   return (
     <Routes>
-      <Route exact path="/" element={<Home />} />
+      <Route
+        exact
+        path="/"
+        element={
+          <Home
+            searchRef={searchRef}
+            mobileMenuRef={mobileMenuRef}
+            desktopResultRef={desktopResultRef}
+          />
+        }
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+      />
       <Route
         exact
         path="/movie/:id"
-        element={<MovieDetail movies={allMovies} />}
+        element={
+          <MovieDetail
+            movies={allMovies}
+            searchRef={searchRef}
+            mobileMenuRef={mobileMenuRef}
+            desktopResultRef={desktopResultRef}
+          />
+        }
       />
       <Route
         exact
         path="/category"
-        element={<Movies movies={DATA2.movies} />}
+        element={
+          <Movies
+            movies={DATA2.movies}
+            searchRef={searchRef}
+            mobileMenuRef={mobileMenuRef}
+            desktopResultRef={desktopResultRef}
+          />
+        }
       />
       <Route
         exact
         path="/search"
-        element={<Search 
-          search={value}
-          filteredMovies={filteredMovies}/>}
+        element={
+          <Search
+            search={value}
+            filteredMovies={filteredMovies}
+            searchRef={searchRef}
+            mobileMenuRef={mobileMenuRef}
+            desktopResultRef={desktopResultRef}
+            setIsMobileMenuOpen={setIsMobileMenuOpen}
+          />
+        }
       />
-      <Route exact path="/all" element={<Movies movies={allMovies} />} />
-      <Route path="/pricing" element={<Pricing />} />
+      <Route
+        exact
+        path="/all"
+        element={
+          <Movies
+            movies={allMovies}
+            searchRef={searchRef}
+            mobileMenuRef={mobileMenuRef}
+            desktopResultRef={desktopResultRef}
+          />
+        }
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+      />
+      <Route
+        path="/pricing"
+        element={
+          <Pricing
+            searchRef={searchRef}
+            mobileMenuRef={mobileMenuRef}
+            desktopResultRef={desktopResultRef}
+          />
+        }
+      />
       <Route
         path="/vlogs/"
         element={
@@ -129,6 +217,9 @@ function MainContent({ setActive, allMovies, filteredMovies, search }) {
             selectedId={selectedId}
             setSelectedId={setSelectedId}
             data={data}
+            searchRef={searchRef}
+            mobileMenuRef={mobileMenuRef}
+            desktopResultRef={desktopResultRef}
           />
         }
       />
@@ -140,17 +231,45 @@ function MainContent({ setActive, allMovies, filteredMovies, search }) {
             // handleSelectVlog={handleSelectVlog}
             // selectedId={selectedId}
             // setSelectedId={setSelectedId}
+            searchRef={searchRef}
+            mobileMenuRef={mobileMenuRef}
+            desktopResultRef={desktopResultRef}
           />
         }
       />
-      <Route path="/contact" element={<Contact />} />
+      <Route
+        path="/contact"
+        element={
+          <Contact
+            searchRef={searchRef}
+            mobileMenuRef={mobileMenuRef}
+            desktopResultRef={desktopResultRef}
+          />
+        }
+      />
       <Route
         path="/login"
-        element={<Login bg={bgImage} isFading={isFading} />}
+        element={
+          <Login
+            bg={bgImage}
+            isFading={isFading}
+            searchRef={searchRef}
+            mobileMenuRef={mobileMenuRef}
+            desktopResultRef={desktopResultRef}
+          />
+        }
       />
       <Route
         path="/signup"
-        element={<CreateAccount bg={bgImage} isFading={isFading} />}
+        element={
+          <CreateAccount
+            bg={bgImage}
+            isFading={isFading}
+            searchRef={searchRef}
+            mobileMenuRef={mobileMenuRef}
+            desktopResultRef={desktopResultRef}
+          />
+        }
       />
     </Routes>
   );

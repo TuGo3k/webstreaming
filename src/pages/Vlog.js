@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import BgPic from "../assets/images/blog_bg.jpg";
-import MovieCard03 from "../components/MovieCard03";
-import { VlogSidebar } from "../components/VlogSidebar";
+import MovieCard03 from "../components/Cards/MovieCard03";
+import { VlogSidebar } from "../components/Vlog/VlogSidebar";
 
-const Vlog = ({ data = [], selectedId, handleSelectVlog }) => {
+const Vlog = ({
+  data = [],
+  selectedId,
+  handleSelectVlog,
+  setIsMobileMenuOpen,
+}) => {
   return (
     <div
       className="lg:mt-6 px-6 md:px-[10%] lg:px-[15%] pt-[20%] pb-[5%] md:py-[5%] flex flex-col lg:flex-row bg-cover bg-center bg-no-repeat gap-8 md:gap-12 lg:gap-16"
@@ -18,7 +23,10 @@ const Vlog = ({ data = [], selectedId, handleSelectVlog }) => {
                 key={index}
                 data={el}
                 id={el.id}
-                onClick={() => handleSelectVlog(el.id)}
+                onClick={() => {
+                  handleSelectVlog(el.id);
+                }}
+                setIsMobileMenuOpen={setIsMobileMenuOpen}
               />
             ))
         ) : (

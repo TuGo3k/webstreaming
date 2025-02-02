@@ -1,4 +1,4 @@
-import { MovieCard02 } from "../components/MovieCard02";
+import { MovieCard02 } from "../components/Cards/MovieCard02";
 import Pagination from "../components/Pagination";
 import React, { useState } from "react";
 
@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import { Navigation, Autoplay } from "swiper/modules";
 
-const Movies = ({ movies }) => {
+const Movies = ({ movies, setIsMobileMenuOpen }) => {
   const [chosen, setChosen] = useState(0); // Tracks the selected category index
 
   const [activeCategory, setActiveCategory] = useState("All");
@@ -82,15 +82,20 @@ const Movies = ({ movies }) => {
 
         <div className="grid grid-cols-3  lg:grid-cols-4 gap-3 lg:gap-10 transition-all duration-300 ease-in-out">
           {filteredMovies.map((movie, index) => (
-            <MovieCard02 key={index} movie={movie} id={movie.id} />
+            <MovieCard02
+              setIsMobileMenuOpen={setIsMobileMenuOpen}
+              key={index}
+              movie={movie}
+              id={movie.id}
+            />
           ))}
         </div>
 
         <div className="fixed bottom-0  ">
-        <Pagination
-          totalPages={4}
-          onPageChange={(page) => console.log("Page:", page)}
-        />
+          <Pagination
+            totalPages={4}
+            onPageChange={(page) => console.log("Page:", page)}
+          />
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import { FaUser, FaComment, FaClock } from "react-icons/fa";
 import { BiSolidLike } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
-const MovieCard03 = ({ data, id }) => {
+const MovieCard03 = ({ data, id, setIsMobileMenuOpen, }) => {
  
   return (
     <div className="mx-auto bg-gray-900 text-white rounded-lg overflow-hidden shadow-lg">
@@ -39,7 +39,7 @@ const MovieCard03 = ({ data, id }) => {
 
         {/* Read More */}
         <div className="flex justify-end">
-          <Link to={`/vlogs/${id}`} className="text-yellow-400 font-bold text-sm hover:underline flex items-center">
+          <Link to={`/vlogs/${id}`} onClick={() => setIsMobileMenuOpen(false)} className="text-yellow-400 font-bold text-sm hover:underline flex items-center">
             Read More <span className="ml-1">»</span>
           </Link>
         </div>

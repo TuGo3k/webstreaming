@@ -1,6 +1,6 @@
 import React from "react";
-import data from "../data/prices.json";
-import PricingCard from "./PricingCard";
+import data from "../../data/prices.json";
+import PricingCard from "../Cards/PricingCard";
 
 const PricingStrategy = () => {
   const prices = data.prices;

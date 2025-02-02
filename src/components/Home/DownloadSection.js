@@ -1,8 +1,8 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { fadeIn } from "../variants";
-import downloadsection from "../assets/images/downloadsection.jpg";
-import services_bg02 from "../assets/images/services_bg02.jpg";
+import { fadeIn } from "../../variants";
+import downloadsection from "../../assets/images/downloadsection.jpg";
+import services_bg02 from "../../assets/images/services_bg02.jpg";
 import { GoDownload } from "react-icons/go";
 import { PiTelevisionBold } from "react-icons/pi";
 import { ImVideoCamera } from "react-icons/im";

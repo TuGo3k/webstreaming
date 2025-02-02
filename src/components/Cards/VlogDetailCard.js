@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { FaRegComment, FaRegHeart, FaUserCircle } from "react-icons/fa";
 import { useParams } from "react-router-dom";
-import { VlogSidebar } from "./VlogSidebar";
-import BgPic from "../assets/images/blog_bg.jpg";
+import { VlogSidebar } from "../Vlog/VlogSidebar.jsx";
+import BgPic from "../../assets/images/blog_bg.jpg";
 const PostPage = ({ data = [] }) => {
   const { id } = useParams();
   const [vlog, setVlog] = useState(null);

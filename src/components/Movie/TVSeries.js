@@ -1,5 +1,5 @@
 import React from "react";
-import bg from "../assets/images/tv_series_bg02.jpg";
+import bg from "../../assets/images/tv_series_bg02.jpg";
 import { IoMdTime } from "react-icons/io";
 import { BiSolidLike } from "react-icons/bi";
 const TVSeries = () => {
